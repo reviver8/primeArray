@@ -1,0 +1,23 @@
+def primeArray(self, arr):
+    self.arr = arr
+    
+    sol_arr = []
+    for num in arr:
+        #if number is 2, it is prime; i hardcoded this because I do not know a better method
+        if num == 2:
+            sol_arr.append("prime")
+        #all even numbers greater than 2 are composite
+        elif num % 2 == 0:
+            sol_arr.append("composite")
+        else:
+            #the upper limit of this method's input nubmers is 97 * 97
+            #so this condition checks whether "num" is divisible by any odd number
+            #if num % [3:97:2] == 0:
+            for odd_num in range(3,97,2):
+                if num % odd_num:
+                    sol_arr.append("composite")
+            sol_arr.append("prime")
+    return sol_arr
+    
+def main(self):
+    print(primeArray([8,3,4,5,0,239,545,112,546,887]))
